@@ -33,9 +33,38 @@ K₂ = Aᵇ mod p
 8.	Compare the two generated shared secret keys.
 9.	If both keys are equal, the Diffie-Hellman key exchange is successful.
 # PYTHON PROGRAM
+```
+p = 23
+g = 5
 
+print("\nPublic prime (p):", p)
+print("Public base (g):", g)
+
+user1_private = int(input("\nEnter Alice private key: "))
+user2_private = int(input("\nEnter Bob private key: "))
+
+user1_public = pow(g, user1_private, p)
+user2_public = pow(g, user2_private, p)
+
+print("\nAlice Public Key:", user1_public)
+print("Bob Public Key:", user2_public)
+
+user1_secret = pow(user2_public, user1_private, p)
+user2_secret = pow(user1_public, user2_private, p)
+
+print("\nAlice Shared Key:", user1_secret)
+print("Bob Shared Key:", user2_secret)
+
+if user1_secret == user2_secret:
+    print("\nKey Exchange Successful")
+else:
+    print("\nKey Exchange Failed")
+```
 
 # OUTPUT : 
+
+<img width="1068" height="382" alt="image" src="https://github.com/user-attachments/assets/5ffaf99e-c977-492c-94bd-06a0e590d64b" />
+
  
 # RESULT
 Thus, a Python program was successfully created and executed to verify data integrity using the SHA-256 hashing algorithm and to establish a shared secret key using the Diffie-Hellman key exchange protocol. 
